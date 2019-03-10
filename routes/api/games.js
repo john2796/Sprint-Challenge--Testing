@@ -6,9 +6,10 @@ const getAllMovies = async (req, res) => {
     const games = await db.find('games', req.query);
 
     const results = games.data.map(async (game) => {
-      game.test = 'mikko pogi';
+      games.test = 'mikko pogi';
       return game;
     });
+
 
     Promise.all(results).then((completed) => {
       games.data = completed;
@@ -97,7 +98,7 @@ server.delete('/:id', async (req, res) => {
     if (games) {
       getAllMovies(req, res);
     } else {
-      res.status(404).json({ message: 'games not found' });
+      res.status(404).json({ message: 'games not `found' });
     }
   } catch (err) {
     db.errHelper(res, err);

@@ -4,7 +4,7 @@ const sqliteErrors = require('./errorList');
 // get all & query name & pagination
 // query by firstname
 function find(tbl, query) {
-  const { limit = 10, page = 1, name } = query;
+  const { limit = 5, page = 1, name } = query;
   let table;
   if (!name) {
     table = db
